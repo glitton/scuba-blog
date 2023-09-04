@@ -1,6 +1,6 @@
 # Generosa Litton Scuba Diving Blog Using React
 
-This site contains my scuba blog posts including photographs that I've taken in various diving sites.
+This site contains my scuba blog posts including photographs that I've taken from various diving sites all over the world.
 
 This site was built using Vite and React.
 Currently, two official plugins are available:
