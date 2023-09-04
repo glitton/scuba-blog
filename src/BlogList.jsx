@@ -1,3 +1,4 @@
+import Bio from "./Bio";
 import SingleBlog from "./SingleBlog";
 
 const BlogList = () => {
@@ -12,11 +13,16 @@ const BlogList = () => {
         <a href='https://glcodeworks.com'>Back to Home</a>
       </div>
       <main>
-        <div className='bio'>Insert Bio here</div>
+        <div className='bio'>
+          <Bio />
+        </div>
         <ol style={{ listStyle: "none" }}>
           <SingleBlog />
         </ol>
       </main>
+      <footer>
+        &copy; {new Date().getFullYear()}. Built with React and Vite.
+      </footer>
     </div>
   );
 };
