@@ -58,7 +58,7 @@ const BlogList = () => {
         </ol>
       </main>
       <footer>
-        &copy; {new Date().getFullYear()}. Built with React and Vite.
+        &copy; {new Date().getFullYear()}. Built with React using Vite.
       </footer>
     </div>
   );
