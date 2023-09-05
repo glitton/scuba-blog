@@ -6,15 +6,15 @@ import Bio from "./Bio";
 const BlogList = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const client = createClient({
-    space: "4l7d4xrnj5sv",
-    accessToken: "EDHgw6v3XPdJ3BqSb1z3374vLG0Pouys9nWGf0hjgSI",
+    space: import.meta.env.VITE_SPACE_ID,
+    accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
   });
 
   useEffect(() => {
     const getAllBlogEntries = async () => {
       try {
         const entries = await client.getEntries();
-        console.log(entries);
+        // console.log(entries);
         setBlogPosts(entries);
       } catch (error) {
         console.log("error");
