@@ -330,10 +330,9 @@ a {
 }
 
 .blog-image {
-  height: 300px;
-  width: auto;
+  height: auto;
+  width: 630px;
   margin-bottom: 1rem;
-  border-radius: 5px;
 }
 
 /* Media queries */

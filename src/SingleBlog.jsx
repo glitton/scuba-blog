@@ -30,7 +30,7 @@ const SingleBlog = () => {
   return (
     <div className='global-wrapper'>
       <header className='global-header'>
-        <Link to='/blogList' className='header-link-home'>
+        <Link to='/blog-list' className='header-link-home'>
           Back to Blog Posts
         </Link>
       </header>
@@ -39,13 +39,17 @@ const SingleBlog = () => {
       </div>
 
       <article className='blog-post'>
-        <header>{singleBlogPost?.fields?.blogTitle}</header>
-        <p>{singleBlogPost?.fields?.createDate}</p>
-        <img
-          className='blog-image'
-          src={singleBlogPost?.fields?.blogImage?.fields?.file?.url}
-          alt={singleBlogPost?.fields?.blogImage?.fields?.description}
-        />
+        <header>
+          <h1>{singleBlogPost?.fields?.blogTitle}</h1>
+
+          <p>{singleBlogPost?.fields?.createDate}</p>
+          <img
+            className='blog-image'
+            src={singleBlogPost?.fields?.blogImage?.fields?.file?.url}
+            alt={singleBlogPost?.fields?.blogImage?.fields?.description}
+          />
+        </header>
+
         <ReactMarkdown>{singleBlogPost?.fields?.blogPostContent}</ReactMarkdown>
         <hr />
         <div className='footer-bio'>

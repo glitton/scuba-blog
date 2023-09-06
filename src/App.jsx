@@ -6,8 +6,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/singleBlog/:id' element={<SingleBlog />} />
-        <Route path='/blogList' element={<BlogList />} />
+        <Route path='/single-blog/:id' element={<SingleBlog />} />
+        <Route path='/blog-list' element={<BlogList />} />
         <Route path='/' element={<BlogList />} />
       </Routes>
     </Router>

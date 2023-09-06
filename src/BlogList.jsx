@@ -47,7 +47,7 @@ const BlogList = () => {
               return (
                 <article className='post-list-item' key={post.sys.id}>
                   <header>
-                    <Link to={`/singleBlog/${post.sys.id}`}>
+                    <Link to={`/single-blog/${post.sys.id}`}>
                       <h2>
                         <span>{post.fields.blogTitle}</span>
                       </h2>
