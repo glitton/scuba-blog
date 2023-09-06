@@ -1,19 +1,59 @@
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { createClient } from "contentful";
 import Bio from "./Bio";
 
 const SingleBlog = () => {
+  const client = createClient({
+    space: import.meta.env.VITE_SPACE_ID,
+    accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+  });
+  const { id } = useParams();
+
+  const [singleBlogPost, setSingleBlogPost] = useState([]);
+
+  useEffect(() => {
+    const getSingleBlogById = async () => {
+      try {
+        const entry = await client.getEntry(id);
+        setSingleBlogPost(entry);
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    getSingleBlogById();
+  }, []);
+
+  console.log("single blog", singleBlogPost);
+
   return (
-    <>
+    <div className='global-wrapper'>
+      <header className='global-header'>
+        <Link to='/blogList' className='header-link-home'>
+          Back to Blog Posts
+        </Link>
+      </header>
+      <div className='back-to-home'>
+        <a href='https://glcodeworks.com'>Back to Home</a>
+      </div>
+
       <article className='blog-post'>
-        <header>
-          <h1>Blog Post Title</h1>
-          <p>blog post date</p>
-        </header>
-        <section>Blog post content</section>
+        <header>{singleBlogPost?.fields?.blogTitle}</header>
+        <p>{singleBlogPost?.fields?.createDate}</p>
+        <img
+          className='blog-image'
+          src={singleBlogPost?.fields?.blogImage?.fields?.file?.url}
+          alt={singleBlogPost?.fields?.blogImage?.fields?.description}
+        />
+        <ReactMarkdown>{singleBlogPost?.fields?.blogPostContent}</ReactMarkdown>
         <hr />
-        <footer>
+        <div className='footer-bio'>
           <Bio />
-        </footer>
+          <a href='https://www.glcodeworks.com'>Back to Home</a>
+        </div>
       </article>
+
       <nav className='blog-post-nav'>
         <ul
           style={{
@@ -28,7 +68,10 @@ const SingleBlog = () => {
           <li>next</li>
         </ul>
       </nav>
-    </>
+      <footer>
+        &copy; {new Date().getFullYear()}. Built with React using Vite
+      </footer>
+    </div>
   );
 };
 export default SingleBlog;

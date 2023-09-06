@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { createClient } from "contentful";
 import Bio from "./Bio";
+import { Link } from "react-router-dom";
 
 const BlogList = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -30,7 +31,7 @@ const BlogList = () => {
     <div className='global-wrapper'>
       <header className='global-header'>
         <h1 className='main-heading'>
-          <a href='/blog/'>Scuba Diving Adventures</a>
+          <a href='/'>Scuba Diving Adventures</a>
         </h1>
       </header>
       <div className='back-to-home'>
@@ -46,9 +47,12 @@ const BlogList = () => {
               return (
                 <article className='post-list-item' key={post.sys.id}>
                   <header>
-                    <h2>
-                      <span>{post.fields.blogTitle}</span>
-                    </h2>
+                    <Link to={`/singleBlog/${post.sys.id}`}>
+                      <h2>
+                        <span>{post.fields.blogTitle}</span>
+                      </h2>
+                    </Link>
+
                     <small>{post.fields.createDate}</small>
                   </header>
                   <section>
@@ -61,7 +65,7 @@ const BlogList = () => {
         </ol>
       </main>
       <footer>
-        &copy; {new Date().getFullYear()}. Built with React using Vite.
+        &copy; {new Date().getFullYear()}. Built with React using Vite
       </footer>
     </div>
   );

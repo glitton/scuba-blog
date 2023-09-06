@@ -87,7 +87,8 @@ body {
   color: var(--color-text);
 }
 
-footer {
+footer,
+.footer-bio {
   padding: var(--spacing-6) var(--spacing-0);
 }
 
@@ -328,8 +329,11 @@ a {
   margin: var(--spacing-0);
 }
 
-.gatsby-highlight {
-  margin-bottom: var(--spacing-8);
+.blog-image {
+  height: 300px;
+  width: auto;
+  margin-bottom: 1rem;
+  border-radius: 5px;
 }
 
 /* Media queries */
