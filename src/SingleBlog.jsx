@@ -26,7 +26,15 @@ const SingleBlog = () => {
   }, []);
 
   console.log("single blog", singleBlogPost);
-
+  const { blogTitle, createDate, blogPostContent } =
+    singleBlogPost?.fields ?? {};
+  // const {
+  //   fields: {
+  //     blogImage: {
+  //       fields: { file: url },
+  //     },
+  //   },
+  // } = singleBlogPost;
   return (
     <div className='global-wrapper'>
       <header className='global-header'>
@@ -40,17 +48,17 @@ const SingleBlog = () => {
 
       <article className='blog-post'>
         <header>
-          <h1>{singleBlogPost?.fields?.blogTitle}</h1>
+          <h1>{blogTitle}</h1>
 
-          <p>{singleBlogPost?.fields?.createDate}</p>
+          <p>{createDate}</p>
           <img
             className='blog-image'
-            src={singleBlogPost?.fields?.blogImage?.fields?.file?.url}
+            src={singleBlogPost?.fields?.blogImage?.fields?.file.url}
             alt={singleBlogPost?.fields?.blogImage?.fields?.description}
           />
         </header>
 
-        <ReactMarkdown>{singleBlogPost?.fields?.blogPostContent}</ReactMarkdown>
+        <ReactMarkdown>{blogPostContent}</ReactMarkdown>
         <hr />
         <div className='footer-bio'>
           <Bio />

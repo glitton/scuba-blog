@@ -44,19 +44,20 @@ const BlogList = () => {
         <ol style={{ listStyle: "none" }}>
           <li>
             {blogPosts?.items?.map((post) => {
+              const { blogTitle, createDate, blogSummary } = post.fields;
               return (
                 <article className='post-list-item' key={post.sys.id}>
                   <header>
                     <Link to={`/single-blog/${post.sys.id}`}>
                       <h2>
-                        <span>{post.fields.blogTitle}</span>
+                        <span>{blogTitle}</span>
                       </h2>
                     </Link>
 
-                    <small>{post.fields.createDate}</small>
+                    <small>{createDate}</small>
                   </header>
                   <section>
-                    <p>{post.fields.blogSummary}</p>
+                    <p>{blogSummary}</p>
                   </section>
                 </article>
               );
