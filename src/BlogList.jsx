@@ -13,8 +13,11 @@ const BlogList = () => {
   useEffect(() => {
     const getAllBlogEntries = async () => {
       try {
-        const entries = await client.getEntries();
-        // console.log(entries);
+        const entries = await client.getEntries({
+          content_type: "blog",
+          order: "-fields.createDate",
+        });
+        // console.log(typeof entries.items[0].fields.createDate);
         setBlogPosts(entries);
       } catch (error) {
         console.log("error");
