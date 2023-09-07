@@ -30,9 +30,7 @@ const BlogList = () => {
   return (
     <div className='global-wrapper'>
       <header className='global-header'>
-        <h1 className='main-heading'>
-          <a href='/'>Scuba Diving Adventures</a>
-        </h1>
+        <h1 className='main-heading'>Scuba Diving Adventures</h1>
       </header>
       <div className='back-to-home'>
         <a href='https://glcodeworks.com'>Back to Home</a>
