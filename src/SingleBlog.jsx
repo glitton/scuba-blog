@@ -26,7 +26,7 @@ const SingleBlog = () => {
   }, []);
 
   // console.log("single blog", singleBlogPost);
-  const { blogTitle, createDate, blogPostContent, blogPostMedia } =
+  const { blogTitle, createDate, blogPostContent } =
     singleBlogPost?.fields ?? {};
   // const {
   //   fields: {
@@ -35,7 +35,7 @@ const SingleBlog = () => {
   //     },
   //   },
   // } = singleBlogPost;
-  console.log("blog post media", blogPostMedia);
+  // console.log("blog post media", blogPostMedia);
   return (
     <div className='global-wrapper'>
       <header className='global-header'>
@@ -60,9 +60,6 @@ const SingleBlog = () => {
         </header>
 
         <ReactMarkdown>{blogPostContent}</ReactMarkdown>
-        {/* {blogPostMedia.map((post, index) => {
-          return <ReactMarkdown key={index}>{post}</ReactMarkdown>;
-        })} */}
         <hr />
         <Link to='/blog-list' className='header-link-home'>
           Back to Blog Posts
