@@ -60,8 +60,12 @@ const SingleBlog = () => {
 
         <ReactMarkdown>{blogPostContent}</ReactMarkdown>
         <hr />
+        <Link to='/blog-list' className='header-link-home'>
+          Back to Blog Posts
+        </Link>
         <div className='footer-bio'>
           <Bio />
+
           <a href='https://www.glcodeworks.com'>Back to Home</a>
         </div>
       </article>
