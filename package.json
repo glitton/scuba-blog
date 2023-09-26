@@ -1,6 +1,5 @@
 {
   "name": "scuba-blog",
-  "homepage": "https://glitton.github.io/scuba-blog/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
