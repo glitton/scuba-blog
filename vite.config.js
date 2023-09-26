@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "https://glitton.github.io/scuba-blog/",
+  base: "/scuba-blog/",
   plugins: [react()],
 });
