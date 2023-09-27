@@ -24,3 +24,5 @@ node_modules
 
 gh-pages.pub
 gh-pages
+# Local Netlify folder
+.netlify
