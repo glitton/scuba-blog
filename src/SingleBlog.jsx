@@ -80,10 +80,7 @@ const SingleBlog = () => {
             listStyle: `none`,
             padding: 0,
           }}
-        >
-          <li>previous</li>
-          <li>next</li>
-        </ul>
+        ></ul>
       </nav>
       <footer>
         &copy; {new Date().getFullYear()}. Built with React using Vite
