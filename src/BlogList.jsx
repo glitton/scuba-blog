@@ -27,16 +27,29 @@ const BlogList = () => {
 
   useEffect(() => {
     window
-      .fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify({ blogQuery }),
-      })
+      .fetch(
+        `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // Authenticate the request
+            Authorization: "Bearer EDHgw6v3XPdJ3BqSb1z3374vLG0Pouys9nWGf0hjgSI",
+          },
+          // send the GraphQL query
+          body: JSON.stringify({ blogQuery }),
+        }
+      )
       .then((response) => response.json())
-      .then((json) => console.log("data", json.data));
+      .then(({ data, errors }) => {
+        // console.log("data", data.blogCollection.items[0]);
+        if (errors) {
+          console.error(errors);
+        }
+
+        // rerender the entire component with new data
+        console.log(setBlogPosts(data.blogCollection.items[0]));
+      });
   }, []);
 
   if (!blogPosts) {
