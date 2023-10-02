@@ -1,60 +1,42 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 // import { createClient } from "contentful";
 import Bio from "./Bio";
 import { Link } from "react-router-dom";
 
 const blogQuery = `
-query {
-  blogCollection {
-    items {
+query{
+  blogCollection{
+    items{
       blogTitle
-      createDate
-      blogSummary
     }
   }
 }
 `;
 
 const BlogList = () => {
-  const [blogPosts, setBlogPosts] = useState([]);
+  // const [blogPosts, setBlogPosts] = useState([]);
   // const client = createClient({
   //   space: import.meta.env.VITE_SPACE_ID,
   //   accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
   // });
-  const spaceId = import.meta.env.VITE_SPACE_ID;
-  const accessToken = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN;
+  // const spaceId = import.meta.env.VITE_SPACE_ID;
+  // const accessToken = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN;
 
-  useEffect(() => {
-    window
-      .fetch(
-        `https://graphql.contentful.com/content/v1/spaces/${spaceId}/environments/master`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            // Authenticate the request
-            Authorization: "Bearer EDHgw6v3XPdJ3BqSb1z3374vLG0Pouys9nWGf0hjgSI",
-          },
-          // send the GraphQL query
-          body: JSON.stringify({ blogQuery }),
-        }
-      )
-      .then((response) => response.json())
-      .then(({ data, errors }) => {
-        // console.log("data", data.blogCollection.items[0]);
-        if (errors) {
-          console.error(errors);
-        }
-
-        // rerender the entire component with new data
-        console.log(setBlogPosts(data.blogCollection.items[0]));
-      });
-  }, []);
-
-  if (!blogPosts) {
-    return "Loading ...";
-  }
+  window
+    .fetch(
+      "https://graphql.contentful.com/content/v1/spaces/4l7d4xrnj5sv?access_token=EDHgw6v3XPdJ3BqSb1z3374vLG0Pouys9nWGf0hjgSI",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // send the GraphQL query
+        body: JSON.stringify({ blogQuery }),
+      }
+    )
+    .then((response) => response.json())
+    .then((json) => console.log(json.data));
 
   // useEffect(() => {
   //   const getAllBlogEntries = async () => {
@@ -86,7 +68,7 @@ const BlogList = () => {
         </div>
         <ol style={{ listStyle: "none" }}>
           <li>
-            {blogPosts?.items?.map((post) => {
+            {/* {blogPosts?.items?.map((post) => {
               const { blogTitle, createDate, blogSummary } = post.fields;
               return (
                 <article className='post-list-item' key={post.sys.id}>
@@ -104,7 +86,7 @@ const BlogList = () => {
                   </section>
                 </article>
               );
-            })}
+            })} */}
           </li>
         </ol>
       </main>
