@@ -311,6 +311,7 @@ a {
 .bio-avatar {
   margin-right: var(--spacing-4);
   margin-bottom: var(--spacing-0);
+  margin-top: var(--spacing-3);
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -345,5 +346,13 @@ a {
   ul,
   ol {
     list-style-position: inside;
+  }
+}
+
+@media screen and (min-width: 390px) {
+  img,
+  .blog-image {
+    width: 460px;
+    height: auto;
   }
 }
