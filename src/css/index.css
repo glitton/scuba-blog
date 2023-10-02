@@ -349,10 +349,10 @@ a {
   }
 }
 
-@media screen and (min-width: 390px) {
+@media screen and (max-width: 390px) {
   img,
   .blog-image {
-    width: 460px;
+    width: 400px;
     height: auto;
   }
 }
